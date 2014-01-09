@@ -1,0 +1,33 @@
+Version 1.0
+
+Patch 1.10
+-Spells have been added to ensure each character have four spells
+-Mana has been introduced to the game
+-Damage is no longer fixed
+
+Patch 1.11
+-Mario's YouFail is now very likely to instantly kill opponents
+-Minor value fixes
+
+Patch 1.20
+-A wild Benjamin has been added
+-Two preset conditions has been added to two matchups
+
+Patch 1.21
+-Fixed minor bugs for Harrish
+
+Patch 1.22
+-Mana Regen has been significantly buffed for many characters
+
+Patch 1.30
+-A separate launcher has been added to prevent cheating
+
+Patch 1.31
+-Buffed the minimum damage of spells and attacks
+
+Patch 1.32
+-A new Benjamin condition has been added
+-Buffed damage of weaker characters(William raging is scary, right?)
+
+Patch 1.40
+-Unique character attack texts has been added to each move
