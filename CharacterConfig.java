@@ -596,7 +596,7 @@ public class CharacterConfig
 	    Game.ActionOne [0] = Game.CharacterOne + " attacks " + Game.CharacterTwo + ".";
 	    Game.ActionOne [1] = "Nan uses the power of logic to smite " + Game.CharacterTwo + ".";
 	    Game.ActionOne [2] = "Nan activates righteous fury.";
-	    Game.ActionOne [3] = "Nan hurls the holy Lance of Longinus at " + Game.CharacterTwo + ".";
+	    Game.ActionOne [3] = "Nan sends the holy Lance of Longinus at " + Game.CharacterTwo + ".";
 	    Game.ActionOne [4] = "Nan ascends into a higher existence.";
 	}
 	else if (Game.characterChoice == 2)
@@ -625,7 +625,7 @@ public class CharacterConfig
 	    Game.ActionTwo [0] = Game.CharacterTwo + " attacks " + Game.CharacterOne + ".";
 	    Game.ActionTwo [1] = "Nan uses the power of logic to smite " + Game.CharacterOne + ".";
 	    Game.ActionTwo [2] = "Nan activates righteous fury.";
-	    Game.ActionTwo [3] = "Nan hurls the holy Lance of Longinus at " + Game.CharacterOne + ".";
+	    Game.ActionTwo [3] = "Nan sends the holy Lance of Longinus at " + Game.CharacterOne + ".";
 	    Game.ActionTwo [4] = "Nan ascends into a higher existence.";
 	}
     }

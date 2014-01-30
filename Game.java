@@ -1,7 +1,10 @@
-import hsa.Console;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.*;
+
 public class Game
 {
-    static Console c = new Console ();
+	
     public static String CharacterOne = "";
     public static String CharacterTwo = "";
     public static int characterChoice = 1;
@@ -31,49 +34,50 @@ public class Game
     public static String[] ActionOne = new String [10];
     public static String[] ActionTwo = new String [10];
 
-    public static void game ()
+    public static void game () throws IOException
     {
-	c.println ("Options for Character One:");
-	c.println ("1. Austin");
-	c.println ("2. Harrish");
-	c.println ("3. Jason");
-	c.println ("4. Allen");
-	c.println ("5. Kevin");
-	c.println ("6. Leo");
-	c.println ("7. James");
-	c.println ("8. Cody");
-	c.println ("9. William");
-	c.println ("10. Nan");
-	c.println ("11. Brian");
-	c.println ("12. Mario");
-	c.println ("13. Jin");
-	c.print ("Choice: ");
-	int One = c.readInt ();
+    	
+    	BufferedReader r = new BufferedReader (new InputStreamReader(System.in));	
+	System.out.println ("Options for Character One:");
+	System.out.println ("1. Austin");
+	System.out.println ("2. Harrish");
+	System.out.println ("3. Jason");
+	System.out.println ("4. Allen");
+	System.out.println ("5. Kevin");
+	System.out.println ("6. Leo");
+	System.out.println ("7. James");
+	System.out.println ("8. Cody");
+	System.out.println ("9. William");
+	System.out.println ("10. Nan");
+	System.out.println ("11. Brian");
+	System.out.println ("12. Mario");
+	System.out.println ("13. Jin");
+	System.out.print ("Choice: ");
+	int One = Integer.parseInt(r.readLine ());
 	CharacterConfig.Choose (One);
 	characterChoice = 2;
-	c.clear ();
 
-	c.println ("Options for Character Two:");
-	c.println ("1. Austin");
-	c.println ("2. Harrish");
-	c.println ("3. Jason");
-	c.println ("4. Allen");
-	c.println ("5. Kevin");
-	c.println ("6. Leo");
-	c.println ("7. James");
-	c.println ("8. Cody");
-	c.println ("9. William");
-	c.println ("10. Nan");
-	c.println ("11. Brian");
-	c.println ("12. Mario");
-	c.println ("13. Jin");
-	c.print ("Choice: ");
-	int Two = c.readInt ();
+	System.out.println ("Options for Character Two:");
+	System.out.println ("1. Austin");
+	System.out.println ("2. Harrish");
+	System.out.println ("3. Jason");
+	System.out.println ("4. Allen");
+	System.out.println ("5. Kevin");
+	System.out.println ("6. Leo");
+	System.out.println ("7. James");
+	System.out.println ("8. Cody");
+	System.out.println ("9. William");
+	System.out.println ("10. Nan");
+	System.out.println ("11. Brian");
+	System.out.println ("12. Mario");
+	System.out.println ("13. Jin");
+	System.out.print ("Choice: ");
+	int Two = Integer.parseInt(r.readLine ());
 	while (One == Two)
 	{
-	    c.println ("You cannot choose the same character");
-	    c.print ("Choice: ");
-	    Two = c.readInt ();
+	    System.out.println ("You cannot choose the same character");
+	    System.out.print ("Choice: ");
+	    Two = Integer.parseInt(r.readLine ());
 	}
 	CharacterConfig.Choose (Two);
 	//Reconfigures characters for naming purposes
@@ -82,19 +86,18 @@ public class Game
 	characterChoice = 2;
 	CharacterConfig.Choose (Two);
 	
-	c.clear ();
 	String anykey;
 	int round = 1;
 	int option = 0;
 	if ((CharacterOne.equals ("Mario") || CharacterTwo.equals ("Mario")) && (CharacterOne.equals ("Austin") || CharacterTwo.equals ("Austin")))
 	{
-	    c.println ("Mario fails Austin, Mario wins.");
+	    System.out.println ("Mario fails Austin, Mario wins.");
 	    AutoWin = true;
 	}
 
 	else if ((CharacterOne.equals ("Mario") || CharacterTwo.equals ("Mario")) && (CharacterOne.equals ("Nan") || CharacterTwo.equals ("Nan")))
 	{
-	    c.println ("Mario refuses to face Nan, no one wins.");
+	    System.out.println ("Mario refuses to face Nan, no one wins.");
 	    AutoWin = true;
 	}
 
@@ -103,16 +106,16 @@ public class Game
 	    successOne = false;
 	    successTwo = false;
 
-	    c.println ("Round " + round);
-	    c.println (CharacterOne + " HP:" + CharacterOneHP);
-	    c.println (CharacterOne + " Mana: " + CharacterOneMana);
-	    c.println (CharacterOne + " ManaRegen: " + CharacterOneRegen);
+	    System.out.println ("Round " + round);
+	    System.out.println (CharacterOne + " HP:" + CharacterOneHP);
+	    System.out.println (CharacterOne + " Mana: " + CharacterOneMana);
+	    System.out.println (CharacterOne + " ManaRegen: " + CharacterOneRegen);
 	    for (int i = 0 ; i <= MovesOne ; i++)
 	    {
-		c.println (i + ". " + OptionsOne [i]);
+		System.out.println (i + ". " + OptionsOne [i]);
 	    }
-	    c.print ("Your Move: ");
-	    option = c.readInt ();
+	    System.out.print ("Your Move: ");
+	    option = Integer.parseInt(r.readLine ());
 	    while (!successOne)
 	    {
 		if (option >= 0 && option <= MovesOne)
@@ -123,34 +126,34 @@ public class Game
 			successOne = true;
 		    }
 		    else
-			c.println ("Not Enough Mana");
+			System.out.println ("Not Enough Mana");
 
 		}
 		else
-		    c.println ("Choose a valid option");
+		    System.out.println ("Choose a valid option");
 		if (!successOne)
 		{
-		    c.print ("Your Move: ");
-		    option = c.readInt ();
+		    System.out.print ("Your Move: ");
+		    option = Integer.parseInt(r.readLine ());
 		}
 	    }
 	    RollOne = Math.round (((Math.random () * MoveOneValue [option]) * 0.6) + (MoveOneValue [option] * 0.4));
 	    CharacterTwoHP = CharacterTwoHP - RollOne;
-	    c.println (ActionOne [option] + " " + CharacterTwo + " suffers " + RollOne + " damage.");
+	    System.out.println (ActionOne [option] + " " + CharacterTwo + " suffers " + RollOne + " damage.");
 	    AliveTwo = (CharacterTwoHP > 0);
 	    if (AliveTwo)
 	    {
-		c.println ("--------------------------------------------");
+		System.out.println ("--------------------------------------------");
 
-		c.println (CharacterTwo + " HP:" + CharacterTwoHP);
-		c.println (CharacterTwo + " Mana: " + CharacterTwoMana);
-		c.println (CharacterTwo + " ManaRegen: " + CharacterTwoRegen);
+		System.out.println (CharacterTwo + " HP:" + CharacterTwoHP);
+		System.out.println (CharacterTwo + " Mana: " + CharacterTwoMana);
+		System.out.println (CharacterTwo + " ManaRegen: " + CharacterTwoRegen);
 		for (int i = 0 ; i <= MovesTwo ; i++)
 		{
-		    c.println (i + ". " + OptionsTwo [i]);
+		    System.out.println (i + ". " + OptionsTwo [i]);
 		}
-		c.print ("Your Move: ");
-		option = c.readInt ();
+		System.out.print ("Your Move: ");
+		option = Integer.parseInt(r.readLine ());
 		while (!successTwo)
 		{
 		    if (option >= 0 && option <= MovesTwo)
@@ -161,68 +164,67 @@ public class Game
 			    successTwo = true;
 			}
 			else
-			    c.println ("Not Enough Mana");
+			    System.out.println ("Not Enough Mana");
 
 		    }
 		    else
-			c.println ("Choose a valid option");
+			System.out.println ("Choose a valid option");
 		    if (!successTwo)
 		    {
-			c.print ("Your Move: ");
-			option = c.readInt ();
+			System.out.print ("Your Move: ");
+			option = Integer.parseInt(r.readLine ());
 		    }
 		}
 		RollTwo = Math.round (((Math.random () * MoveTwoValue [option]) * 0.6) + (MoveTwoValue [option] * 0.4));
 		CharacterOneHP = CharacterOneHP - RollTwo;
-		c.println (ActionTwo [option] + " " + CharacterOne + " suffers " + RollTwo + " damage.");
-		c.println ("--------------------------------------------");
+		System.out.println (ActionTwo [option] + " " + CharacterOne + " suffers " + RollTwo + " damage.");
+		System.out.println ("--------------------------------------------");
 
-		c.println ("Round " + round + " results: ");
-		c.println (CharacterOne + " HP :" + CharacterOneHP);
-		c.println (CharacterOne + " Mana: " + CharacterOneMana);
-		c.println (CharacterTwo + " HP :" + CharacterTwoHP);
-		c.println (CharacterTwo + " Mana: " + CharacterTwoMana);
+		System.out.println ("Round " + round + " results: ");
+		System.out.println (CharacterOne + " HP :" + CharacterOneHP);
+		System.out.println (CharacterOne + " Mana: " + CharacterOneMana);
+		System.out.println (CharacterTwo + " HP :" + CharacterTwoHP);
+		System.out.println (CharacterTwo + " Mana: " + CharacterTwoMana);
 		AliveOne = (CharacterOneHP > 0);
 		if (AliveOne)
 		{
-		    c.println ("Enter any key to proceed to next round: ");
-		    anykey = c.readLine ();
+		    System.out.println ("Enter any key to proceed to next round: ");
+		    anykey = r.readLine();
 		}
 	    }
 	    CharacterOneMana = CharacterOneMana + CharacterOneRegen;
 	    CharacterTwoMana = CharacterTwoMana + CharacterTwoRegen;
-	    c.clear ();
 	    round++;
 	}
 
 	if (AliveOne && !AutoWin)
 	{
-	    c.println (ActionOne [option] + " " + CharacterTwo + " suffers " + RollOne + " damage.");
-	    c.println (CharacterOne + " has slain " + CharacterTwo + "!!");
+	    System.out.println (ActionOne [option] + " " + CharacterTwo + " suffers " + RollOne + " damage.");
+	    System.out.println (CharacterOne + " has slain " + CharacterTwo + "!!");
 	}
 	else if (AliveTwo && !AutoWin)
 	{
-	    c.println (ActionTwo [option] + " " + CharacterOne + " suffers " + RollTwo + " damage.");
-	    c.println (CharacterTwo + " has slain " + CharacterOne + "!!");
+	    System.out.println (ActionTwo [option] + " " + CharacterOne + " suffers " + RollTwo + " damage.");
+	    System.out.println (CharacterTwo + " has slain " + CharacterOne + "!!");
 	}
 
 	int BenjaminRoll = (int) (Math.random () * 5);
 	if (BenjaminRoll == 1 && !AutoWin)
 	{
-	    c.println ("A Wild Benjamin Has Appeared!");
+	    System.out.println ("A Wild Benjamin Has Appeared!");
 	    if (AliveOne && (!CharacterOne.equals ("Nan")))
 	    {
-		c.println ("Benjamin slays " + CharacterOne + "!");
-		c.println ("Benjamin wins!");
+		System.out.println ("Benjamin slays " + CharacterOne + "!");
+		System.out.println ("Benjamin wins!");
 	    }
 	    else if (AliveTwo && (!CharacterTwo.equals ("Nan")))
 	    {
-		c.println ("Benjamin slays " + CharacterTwo + "!");
-		c.println ("Benjamin wins!");
+		System.out.println ("Benjamin slays " + CharacterTwo + "!");
+		System.out.println ("Benjamin wins!");
 	    }
 	    else if ((AliveTwo || AliveOne) && (CharacterTwo.equals ("Nan") || CharacterOne.equals ("Nan")))
 	    {
-		c.println ("Benjamin celebrates with Nan!");
+		System.out.println ("Benjamin celebrates with Nan!");
 	    }
 	}
     }
