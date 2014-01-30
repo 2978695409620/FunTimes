@@ -56,6 +56,9 @@ public class Game
 	int One = Integer.parseInt(r.readLine ());
 	CharacterConfig.Choose (One);
 	characterChoice = 2;
+	System.out.println("");
+	System.out.println("------------------------------------");
+	System.out.println("");
 
 	System.out.println ("Options for Character Two:");
 	System.out.println ("1. Austin");
@@ -85,6 +88,9 @@ public class Game
 	CharacterConfig.Choose (One);
 	characterChoice = 2;
 	CharacterConfig.Choose (Two);
+	System.out.println("");
+	System.out.println("------------------------------------");
+	System.out.println("");
 	
 	String anykey;
 	int round = 1;
@@ -195,6 +201,9 @@ public class Game
 	    CharacterOneMana = CharacterOneMana + CharacterOneRegen;
 	    CharacterTwoMana = CharacterTwoMana + CharacterTwoRegen;
 	    round++;
+	    System.out.println("");
+		System.out.println("------------------------------------");
+		System.out.println("");
 	}
 
 	if (AliveOne && !AutoWin)

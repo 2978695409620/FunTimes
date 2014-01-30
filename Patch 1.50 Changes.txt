@@ -31,3 +31,7 @@ Patch 1.32
 
 Patch 1.40
 -Unique character attack texts has been added to each move
+
+Patch 1.50
+-Updated the input method so that the program no longer depends on hsa.Console, yay!
+-Minor changes to formatting to compensate for the lack of clear screen.
